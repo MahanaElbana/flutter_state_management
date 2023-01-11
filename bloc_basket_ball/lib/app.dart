@@ -8,8 +8,10 @@ class BasketBallApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: AppStrings.appName,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(centerTitle: true),
+        primarySwatch: Colors.indigo,
       ),
       home: const BasketballPointScreen(),
     );
