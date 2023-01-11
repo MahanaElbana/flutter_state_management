@@ -9,7 +9,7 @@ class BasketballPointScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkStatus = context.watch<BasketBallCubit>().isDark;
+    bool isDarkStatus = context.watch<BasketBallBloc>().isDark;
     return Scaffold(
       // ====================== app bar ================= //
       appBar: AppBar(
@@ -19,7 +19,7 @@ class BasketballPointScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              BlocProvider.of<BasketBallCubit>(context).basketBallAction(
+              BlocProvider.of<BasketBallBloc>(context).basketBallAction(
                   BasketBallEnumAction.changeTheme,
                   isDarkInput: !isDarkStatus);
             },
@@ -57,7 +57,7 @@ class BasketballPointScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${context.watch<BasketBallCubit>().teamAValue}",
+                            "${context.watch<BasketBallBloc>().teamAValue}",
                             style: const TextStyle(
                               fontSize: 50,
                             ),
@@ -65,7 +65,7 @@ class BasketballPointScreen extends StatelessWidget {
                           ElevatedButton(
                            
                             onPressed: () {
-                              BlocProvider.of<BasketBallCubit>(context)
+                              BlocProvider.of<BasketBallBloc>(context)
                                   .basketBallAction(
                                       BasketBallEnumAction.teamA,
                                       amountOfexcess: 1);
@@ -79,7 +79,7 @@ class BasketballPointScreen extends StatelessWidget {
                           ElevatedButton(
                          
                             onPressed: () {
-                               BlocProvider.of<BasketBallCubit>(context)
+                               BlocProvider.of<BasketBallBloc>(context)
                                   .basketBallAction(
                                       BasketBallEnumAction.teamA,
                                       amountOfexcess: 2);
@@ -95,7 +95,7 @@ class BasketballPointScreen extends StatelessWidget {
                           ElevatedButton(
                         
                             onPressed: () {
-                              BlocProvider.of<BasketBallCubit>(context)
+                              BlocProvider.of<BasketBallBloc>(context)
                                   .basketBallAction(
                                       BasketBallEnumAction.teamA,
                                       amountOfexcess: 3);
@@ -134,7 +134,7 @@ class BasketballPointScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${context.watch<BasketBallCubit>().teamBValue}',
+                            '${context.watch<BasketBallBloc>().teamBValue}',
                             style: const TextStyle(
                               fontSize: 50,
                             ),
@@ -142,7 +142,7 @@ class BasketballPointScreen extends StatelessWidget {
                           ElevatedButton(
                          
                             onPressed: () {
-                              BlocProvider.of<BasketBallCubit>(context)
+                              BlocProvider.of<BasketBallBloc>(context)
                                   .basketBallAction(
                                       BasketBallEnumAction.teamB,
                                       amountOfexcess: 1);
@@ -158,7 +158,7 @@ class BasketballPointScreen extends StatelessWidget {
                           ElevatedButton(
                          
                             onPressed: () {
-                          BlocProvider.of<BasketBallCubit>(context)
+                          BlocProvider.of<BasketBallBloc>(context)
                                   .basketBallAction(
                                       BasketBallEnumAction.teamB,
                                       amountOfexcess: 2);
@@ -174,7 +174,7 @@ class BasketballPointScreen extends StatelessWidget {
                           ElevatedButton(
                           
                             onPressed: () {
-                              BlocProvider.of<BasketBallCubit>(context)
+                              BlocProvider.of<BasketBallBloc>(context)
                                   .basketBallAction(
                                       BasketBallEnumAction.teamB,
                                       amountOfexcess: 3);
@@ -196,7 +196,7 @@ class BasketballPointScreen extends StatelessWidget {
               ElevatedButton(
                
                 onPressed: () {
-                  BlocProvider.of<BasketBallCubit>(context)
+                  BlocProvider.of<BasketBallBloc>(context)
                                   .basketBallAction(
                                       BasketBallEnumAction.reset,
                                       );

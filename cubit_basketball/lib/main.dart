@@ -11,8 +11,8 @@ void main() async{
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider<BasketBallBloc>(
-          create: (BuildContext context) => BasketBallBloc(),
+        BlocProvider<BasketBallCubit>(
+          create: (BuildContext context) => BasketBallCubit(),
         ),
       ],
       child: const BasketBallApp(),

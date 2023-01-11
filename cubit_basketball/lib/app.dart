@@ -15,7 +15,7 @@ class BasketBallApp extends StatelessWidget {
     return MaterialApp(
       title: AppStrings.appName,
       debugShowCheckedModeBanner: false,
-      theme: Styles.themeData(context.watch<BasketBallBloc>().isDark, context),
+      theme: Styles.themeData(context.watch<BasketBallCubit>().isDark, context),
       home: const BasketballPointScreen(),
     );
   }

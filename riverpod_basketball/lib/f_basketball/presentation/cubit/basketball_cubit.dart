@@ -2,13 +2,14 @@ import 'package:cubit_basketball/f_basketball/presentation/cubit/basketball_stat
 import 'package:cubit_basketball/f_basketball/service/theme_service.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class BasketBallCubit extends Cubit<BasketBallStates> {
+class BasketBallBloc extends Cubit<BasketBallStates> {
   int teamAValue = 0;
   int teamBValue = 0;
   bool _isDark = SharedPrefs().isDark ?? false;
   bool get isDark => _isDark;
-  BasketBallCubit() : super(BasketBallInitialState());
+  BasketBallBloc() : super(BasketBallInitialState());
 
   void basketBallAction(BasketBallEnumAction action,
       {int amountOfexcess = 0, isDarkInput = false}) {
@@ -30,4 +31,13 @@ class BasketBallCubit extends Cubit<BasketBallStates> {
   }
 }
 
+
+// final counterProvider = StateNotifierProvider((ref) {
+//   return Counter();
+// });
+
+class BasketBallRiverpod extends StateNotifier<int> {
+  BasketBallRiverpod():super(0);
+ 
+}
 enum BasketBallEnumAction { teamA, teamB, reset, changeTheme }
