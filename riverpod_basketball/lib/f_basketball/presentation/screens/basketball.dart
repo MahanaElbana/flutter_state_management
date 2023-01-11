@@ -1,25 +1,27 @@
-import 'package:cubit_basketball/core/utils/app_strings.dart';
-import 'package:cubit_basketball/f_basketball/presentation/cubit/basketball_cubit.dart';
-
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_basketball/core/utils/app_strings.dart';
+import 'package:riverpod_basketball/f_basketball/presentation/cubit/basketball_cubit.dart';
 
-class BasketballPointScreen extends StatelessWidget {
+class BasketballPointScreen extends ConsumerWidget {
   const BasketballPointScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    bool isDarkStatus = context.watch<BasketBallBloc>().isDark;
+  Widget build(BuildContext context, WidgetRef ref) {
+    var myRiverpod = ref.watch(basketBallProvider); 
+    bool isDarkStatus = myRiverpod.isDark;
     return Scaffold(
       // ====================== app bar ================= //
       appBar: AppBar(
         title: const Text(
-         AppStrings.appName,
+          AppStrings.appName,
         ),
         actions: [
           IconButton(
             onPressed: () {
-              BlocProvider.of<BasketBallBloc>(context).basketBallAction(
+              
+
+             myRiverpod.basketBallAction(
                   BasketBallEnumAction.changeTheme,
                   isDarkInput: !isDarkStatus);
             },
@@ -27,8 +29,7 @@ class BasketballPointScreen extends StatelessWidget {
               !isDarkStatus
                   ? Icons.light_mode_outlined
                   : Icons.dark_mode_rounded,
-                  color: isDarkStatus ? Colors.black : Colors.white,
-            
+              color: isDarkStatus ? Colors.black : Colors.white,
             ),
           ),
         ],
@@ -57,54 +58,44 @@ class BasketballPointScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${context.watch<BasketBallBloc>().teamAValue}",
+                            "${myRiverpod.teamAValue}",
                             style: const TextStyle(
                               fontSize: 50,
                             ),
                           ),
                           ElevatedButton(
-                           
                             onPressed: () {
-                              BlocProvider.of<BasketBallBloc>(context)
-                                  .basketBallAction(
-                                      BasketBallEnumAction.teamA,
+                              myRiverpod.basketBallAction(BasketBallEnumAction.teamA,
                                       amountOfexcess: 1);
                             },
                             child: const Text(
                               'Add 1 Point ',
                               style: TextStyle(
-                                  fontSize: 18, ),
+                                fontSize: 18,
+                              ),
                             ),
                           ),
                           ElevatedButton(
-                         
                             onPressed: () {
-                               BlocProvider.of<BasketBallBloc>(context)
-                                  .basketBallAction(
-                                      BasketBallEnumAction.teamA,
+                              myRiverpod.basketBallAction(BasketBallEnumAction.teamA,
                                       amountOfexcess: 2);
                             },
                             child: const Text(
                               'Add 2 Point',
                               style: TextStyle(
                                 fontSize: 18,
-                            
                               ),
                             ),
                           ),
                           ElevatedButton(
-                        
                             onPressed: () {
-                              BlocProvider.of<BasketBallBloc>(context)
-                                  .basketBallAction(
-                                      BasketBallEnumAction.teamA,
+                              myRiverpod.basketBallAction(BasketBallEnumAction.teamA,
                                       amountOfexcess: 3);
                             },
                             child: const Text(
                               'Add 3 Point ',
                               style: TextStyle(
                                 fontSize: 18,
-                          
                               ),
                             ),
                           ),
@@ -134,56 +125,44 @@ class BasketballPointScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${context.watch<BasketBallBloc>().teamBValue}',
+                            '${myRiverpod.teamBValue}',
                             style: const TextStyle(
                               fontSize: 50,
                             ),
                           ),
                           ElevatedButton(
-                         
                             onPressed: () {
-                              BlocProvider.of<BasketBallBloc>(context)
-                                  .basketBallAction(
-                                      BasketBallEnumAction.teamB,
+                             myRiverpod.basketBallAction(BasketBallEnumAction.teamB,
                                       amountOfexcess: 1);
                             },
                             child: const Text(
                               'Add 1 Point ',
                               style: TextStyle(
                                 fontSize: 18,
-                          
                               ),
                             ),
                           ),
                           ElevatedButton(
-                         
                             onPressed: () {
-                          BlocProvider.of<BasketBallBloc>(context)
-                                  .basketBallAction(
-                                      BasketBallEnumAction.teamB,
+                             myRiverpod.basketBallAction(BasketBallEnumAction.teamB,
                                       amountOfexcess: 2);
                             },
                             child: const Text(
                               'Add 2 Point ',
                               style: TextStyle(
                                 fontSize: 18,
-                         
                               ),
                             ),
                           ),
                           ElevatedButton(
-                          
                             onPressed: () {
-                              BlocProvider.of<BasketBallBloc>(context)
-                                  .basketBallAction(
-                                      BasketBallEnumAction.teamB,
+                            myRiverpod .basketBallAction(BasketBallEnumAction.teamB,
                                       amountOfexcess: 3);
                             },
                             child: const Text(
                               'Add 3 Point ',
                               style: TextStyle(
                                 fontSize: 18,
-                       
                               ),
                             ),
                           ),
@@ -194,12 +173,10 @@ class BasketballPointScreen extends StatelessWidget {
                 ],
               ),
               ElevatedButton(
-               
                 onPressed: () {
-                  BlocProvider.of<BasketBallBloc>(context)
-                                  .basketBallAction(
-                                      BasketBallEnumAction.reset,
-                                      );
+                  myRiverpod.basketBallAction(
+                    BasketBallEnumAction.reset,
+                  );
                 },
                 child: const Text(
                   'Reset',

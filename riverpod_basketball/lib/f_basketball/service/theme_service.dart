@@ -1,5 +1,6 @@
 
-import 'package:cubit_basketball/core/utils/app_strings.dart';
+
+import 'package:riverpod_basketball/core/utils/app_strings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
