@@ -1,3 +1,4 @@
+import 'package:bloc_basket_ball/core/utils/app_strings.dart';
 import 'package:bloc_basket_ball/f_basketball/presentation/bloc/basketball_bloc.dart';
 import 'package:bloc_basket_ball/f_basketball/presentation/bloc/basketball_events.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,10 +13,10 @@ class BasketballPointScreen extends StatelessWidget {
     return Scaffold(
       // ====================== app bar ================= //
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+    
         title: const Text(
-          'Pasketball Points',
-          style: TextStyle(color: Color(0xffffffff)),
+         AppStrings.appName,
+     
         ),
         actions: [
           IconButton(
@@ -62,11 +63,7 @@ class BasketballPointScreen extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.indigo,
-                              foregroundColor: Colors.white,
-                              minimumSize: const Size(150, 50),
-                            ),
+                           
                             onPressed: () {
                               BlocProvider.of<BasketBallBloc>(context)
                                   .add(BasketBallTeamAIncrementEvent(point: 1));
@@ -74,15 +71,11 @@ class BasketballPointScreen extends StatelessWidget {
                             child: const Text(
                               'Add 1 Point ',
                               style: TextStyle(
-                                  fontSize: 18, color: Color(0xffffffff)),
+                                  fontSize: 18, ),
                             ),
                           ),
                           ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.indigo,
-                              foregroundColor: Colors.white,
-                              minimumSize: const Size(150, 50),
-                            ),
+                         
                             onPressed: () {
                               BlocProvider.of<BasketBallBloc>(context)
                                   .add(BasketBallTeamAIncrementEvent(point: 2));
@@ -91,16 +84,12 @@ class BasketballPointScreen extends StatelessWidget {
                               'Add 2 Point',
                               style: TextStyle(
                                 fontSize: 18,
-                                color: Color(0xffffffff),
+                        
                               ),
                             ),
                           ),
                           ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.indigo,
-                              foregroundColor: Colors.white,
-                              minimumSize: const Size(150, 50),
-                            ),
+                         
                             onPressed: () {
                               BlocProvider.of<BasketBallBloc>(context)
                                   .add(BasketBallTeamAIncrementEvent(point: 3));
@@ -109,7 +98,7 @@ class BasketballPointScreen extends StatelessWidget {
                               'Add 3 Point ',
                               style: TextStyle(
                                 fontSize: 18,
-                                color: Color(0xffffffff),
+                   
                               ),
                             ),
                           ),
@@ -145,11 +134,7 @@ class BasketballPointScreen extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.indigo,
-                              foregroundColor: Colors.white,
-                              minimumSize: const Size(150, 50),
-                            ),
+                        
                             onPressed: () {
                               BlocProvider.of<BasketBallBloc>(context)
                                   .add(BasketBallTeamBIncrementEvent(point: 1));
@@ -158,16 +143,12 @@ class BasketballPointScreen extends StatelessWidget {
                               'Add 1 Point ',
                               style: TextStyle(
                                 fontSize: 18,
-                                color: Color(0xffffffff),
+                   
                               ),
                             ),
                           ),
                           ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.indigo,
-                              foregroundColor: Colors.white,
-                              minimumSize: const Size(150, 50),
-                            ),
+                        
                             onPressed: () {
                               BlocProvider.of<BasketBallBloc>(context)
                                   .add(BasketBallTeamBIncrementEvent(point: 2));
@@ -176,16 +157,12 @@ class BasketballPointScreen extends StatelessWidget {
                               'Add 2 Point ',
                               style: TextStyle(
                                 fontSize: 18,
-                                color: Color(0xffffffff),
+                           
                               ),
                             ),
                           ),
                           ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.indigo,
-                              foregroundColor: Colors.white,
-                              minimumSize: const Size(150, 50),
-                            ),
+                      
                             onPressed: () {
                               BlocProvider.of<BasketBallBloc>(context)
                                   .add(BasketBallTeamBIncrementEvent(point: 3));
@@ -194,7 +171,7 @@ class BasketballPointScreen extends StatelessWidget {
                               'Add 3 Point ',
                               style: TextStyle(
                                 fontSize: 18,
-                                color: Color(0xffffffff),
+                     
                               ),
                             ),
                           ),
@@ -205,11 +182,7 @@ class BasketballPointScreen extends StatelessWidget {
                 ],
               ),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo,
-                  foregroundColor: Colors.white,
-                  minimumSize: const Size(150, 50),
-                ),
+           
                 onPressed: () {
                   BlocProvider.of<BasketBallBloc>(context)
                       .add(BasketBallRestEvent());
@@ -218,7 +191,7 @@ class BasketballPointScreen extends StatelessWidget {
                   'Reset',
                   style: TextStyle(
                     fontSize: 18,
-                    color: Color(0xffffffff),
+                
                   ),
                 ),
               ),
