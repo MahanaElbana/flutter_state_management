@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_basketball/core/utils/app_strings.dart';
-import 'package:riverpod_basketball/f_basketball/presentation/cubit/basketball_cubit.dart';
+import 'package:riverpod_basketball/f_basketball/presentation/riverpod/basketball_riverpod.dart';
 
 class BasketballPointScreen extends ConsumerWidget {
   const BasketballPointScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var myRiverpod = ref.watch(basketBallProvider); 
-    bool isDarkStatus = myRiverpod.isDark;
+    var myProviderAction =  ref.read(basketBallProvider);
+    var myProviderDataReading  = ref.watch(basketBallProvider);
     return Scaffold(
       // ====================== app bar ================= //
       appBar: AppBar(
@@ -21,15 +21,15 @@ class BasketballPointScreen extends ConsumerWidget {
             onPressed: () {
               
 
-             myRiverpod.basketBallAction(
+             myProviderAction.basketBallAction(
                   BasketBallEnumAction.changeTheme,
-                  isDarkInput: !isDarkStatus);
+                  isDarkInput: ! myProviderDataReading.isDark);
             },
             icon: Icon(
-              !isDarkStatus
+              !myProviderDataReading.isDark
                   ? Icons.light_mode_outlined
                   : Icons.dark_mode_rounded,
-              color: isDarkStatus ? Colors.black : Colors.white,
+              color: myProviderAction.isDark ? Colors.black : Colors.white,
             ),
           ),
         ],
@@ -58,14 +58,14 @@ class BasketballPointScreen extends ConsumerWidget {
                             ),
                           ),
                           Text(
-                            "${myRiverpod.teamAValue}",
+                            "${myProviderDataReading.teamAValue}",
                             style: const TextStyle(
                               fontSize: 50,
                             ),
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              myRiverpod.basketBallAction(BasketBallEnumAction.teamA,
+                              myProviderAction.basketBallAction(BasketBallEnumAction.teamA,
                                       amountOfexcess: 1);
                             },
                             child: const Text(
@@ -77,7 +77,7 @@ class BasketballPointScreen extends ConsumerWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              myRiverpod.basketBallAction(BasketBallEnumAction.teamA,
+                              myProviderAction.basketBallAction(BasketBallEnumAction.teamA,
                                       amountOfexcess: 2);
                             },
                             child: const Text(
@@ -89,7 +89,7 @@ class BasketballPointScreen extends ConsumerWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              myRiverpod.basketBallAction(BasketBallEnumAction.teamA,
+                              myProviderAction.basketBallAction(BasketBallEnumAction.teamA,
                                       amountOfexcess: 3);
                             },
                             child: const Text(
@@ -125,14 +125,14 @@ class BasketballPointScreen extends ConsumerWidget {
                             ),
                           ),
                           Text(
-                            '${myRiverpod.teamBValue}',
+                            '${myProviderDataReading.teamBValue}',
                             style: const TextStyle(
                               fontSize: 50,
                             ),
                           ),
                           ElevatedButton(
                             onPressed: () {
-                             myRiverpod.basketBallAction(BasketBallEnumAction.teamB,
+                             myProviderAction.basketBallAction(BasketBallEnumAction.teamB,
                                       amountOfexcess: 1);
                             },
                             child: const Text(
@@ -144,7 +144,7 @@ class BasketballPointScreen extends ConsumerWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                             myRiverpod.basketBallAction(BasketBallEnumAction.teamB,
+                             myProviderAction.basketBallAction(BasketBallEnumAction.teamB,
                                       amountOfexcess: 2);
                             },
                             child: const Text(
@@ -156,7 +156,7 @@ class BasketballPointScreen extends ConsumerWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                            myRiverpod .basketBallAction(BasketBallEnumAction.teamB,
+                            myProviderAction .basketBallAction(BasketBallEnumAction.teamB,
                                       amountOfexcess: 3);
                             },
                             child: const Text(
@@ -174,7 +174,7 @@ class BasketballPointScreen extends ConsumerWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  myRiverpod.basketBallAction(
+                  ref.read(basketBallProvider).basketBallAction(
                     BasketBallEnumAction.reset,
                   );
                 },

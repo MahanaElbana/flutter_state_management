@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Styles {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
-      primarySwatch: Colors.green,
+      primarySwatch: Colors.purple,
       scaffoldBackgroundColor: isDarkTheme ? Colors.black : Colors.grey[50],
      //  TextTheme
       textTheme: TextTheme(
@@ -14,13 +14,13 @@ class Styles {
       appBarTheme: AppBarTheme(
         elevation: 0.0,
         centerTitle: true,
-        backgroundColor: Colors.greenAccent.shade700,
+        backgroundColor: Colors.purple,
         foregroundColor: isDarkTheme ? Colors.white : Colors.black,
       ),
       //  ElevatedButtonThemeData
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.greenAccent.shade700,
+          backgroundColor: Colors.purple,
           foregroundColor: isDarkTheme ? Colors.white : Colors.black,
           minimumSize: const Size(150, 50),
         ),
