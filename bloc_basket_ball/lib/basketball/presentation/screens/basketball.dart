@@ -1,4 +1,3 @@
-
 import 'package:bloc_basket_ball/basketball/presentation/bloc/basketball_bloc.dart';
 import 'package:bloc_basket_ball/basketball/presentation/bloc/basketball_events.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +8,7 @@ class BasketballPointScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkStatus = context.watch<BasketBallBloc>().isDark;
     return Scaffold(
       // ====================== app bar ================= //
       appBar: AppBar(
@@ -17,6 +17,20 @@ class BasketballPointScreen extends StatelessWidget {
           'Pasketball Points',
           style: TextStyle(color: Color(0xffffffff)),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              BlocProvider.of<BasketBallBloc>(context)
+                  .add(BasketBallChangeThemeEvent(isDark: !isDarkStatus));
+            },
+            icon: Icon(
+              !isDarkStatus
+                  ? Icons.light_mode_outlined
+                  : Icons.dark_mode_rounded,
+              color: isDarkStatus ? Colors.black : Colors.white,
+            ),
+          ),
+        ],
       ),
 
       // ====================== body ================= //
@@ -59,8 +73,8 @@ class BasketballPointScreen extends StatelessWidget {
                             },
                             child: const Text(
                               'Add 1 Point ',
-                              style:
-                                  TextStyle(fontSize: 18, color: Color(0xffffffff)),
+                              style: TextStyle(
+                                  fontSize: 18, color: Color(0xffffffff)),
                             ),
                           ),
                           ElevatedButton(
@@ -124,7 +138,7 @@ class BasketballPointScreen extends StatelessWidget {
                               fontSize: 32,
                             ),
                           ),
-                           Text(
+                          Text(
                             '${context.watch<BasketBallBloc>().teamBValue}',
                             style: const TextStyle(
                               fontSize: 50,
@@ -137,7 +151,7 @@ class BasketballPointScreen extends StatelessWidget {
                               minimumSize: const Size(150, 50),
                             ),
                             onPressed: () {
-                               BlocProvider.of<BasketBallBloc>(context)
+                              BlocProvider.of<BasketBallBloc>(context)
                                   .add(BasketBallTeamBIncrementEvent(point: 1));
                             },
                             child: const Text(
@@ -155,7 +169,7 @@ class BasketballPointScreen extends StatelessWidget {
                               minimumSize: const Size(150, 50),
                             ),
                             onPressed: () {
-                               BlocProvider.of<BasketBallBloc>(context)
+                              BlocProvider.of<BasketBallBloc>(context)
                                   .add(BasketBallTeamBIncrementEvent(point: 2));
                             },
                             child: const Text(
@@ -173,8 +187,8 @@ class BasketballPointScreen extends StatelessWidget {
                               minimumSize: const Size(150, 50),
                             ),
                             onPressed: () {
-                               BlocProvider.of<BasketBallBloc>(context)
-                                  .add(BasketBallTeamBIncrementEvent(point:3));
+                              BlocProvider.of<BasketBallBloc>(context)
+                                  .add(BasketBallTeamBIncrementEvent(point: 3));
                             },
                             child: const Text(
                               'Add 3 Point ',
@@ -197,8 +211,8 @@ class BasketballPointScreen extends StatelessWidget {
                   minimumSize: const Size(150, 50),
                 ),
                 onPressed: () {
-                   BlocProvider.of<BasketBallBloc>(context)
-                                .add(BasketBallRestEvent());
+                  BlocProvider.of<BasketBallBloc>(context)
+                      .add(BasketBallRestEvent());
                 },
                 child: const Text(
                   'Reset',
