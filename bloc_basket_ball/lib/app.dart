@@ -1,4 +1,5 @@
 import 'package:bloc_basket_ball/basketball/presentation/screens/basketball.dart';
+import 'package:bloc_basket_ball/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class BasketBallApp extends StatelessWidget {
@@ -6,7 +7,7 @@ class BasketBallApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'BasketBall Points',
+      title: AppStrings.appName,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

@@ -1,5 +1,6 @@
-import 'package:bloc_shared_pref/features/basketball/presentation/bloc/basketball_bloc.dart';
-import 'package:bloc_shared_pref/features/basketball/presentation/bloc/basketball_events.dart';
+
+import 'package:bloc_basket_ball/basketball/presentation/bloc/basketball_bloc.dart';
+import 'package:bloc_basket_ball/basketball/presentation/bloc/basketball_events.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
