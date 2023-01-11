@@ -1,4 +1,5 @@
 
+import 'package:bloc_basket_ball/core/utils/app_strings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {
@@ -12,12 +13,11 @@ class SharedPrefs {
     _sharedPrefs = await SharedPreferences.getInstance();
   }
 
-  bool? get isDark => _sharedPrefs.getBool(selectedThemeKey);
+  bool? get isDark => _sharedPrefs.getBool(AppStrings.selectedThemeKey);
 
    setThemeIndex(bool isDark) {
-    _sharedPrefs.setBool(selectedThemeKey, isDark);  
+    _sharedPrefs.setBool(AppStrings.selectedThemeKey, isDark);  
   }
 }
 
-// constants.dart
-const String selectedThemeKey = "themeMode";
+
