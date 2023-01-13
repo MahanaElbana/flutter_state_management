@@ -1,4 +1,5 @@
 # Flutter state management challenge 💪
+ 
  - Bloc
  - Cubit
  - Provider
@@ -7,4 +8,8 @@
 
 ## The app achieves the following Steps 
  - Dark && Light Theme using SharedPrefernces
- - basketball app functionality 
+ - Basketball app functionality 
+
+
+
+<img src="../flutter_state_management/pic.png"  class="center">
