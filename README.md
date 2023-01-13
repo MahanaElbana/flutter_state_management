@@ -12,4 +12,4 @@
 
 
 
-<img src="../flutter_state_management/pic.png"  class="center">
+<img src="./flutter_state_management/pic.png"  class="center">
