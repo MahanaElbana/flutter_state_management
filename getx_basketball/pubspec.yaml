@@ -12,8 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  get: ^4.6.5
-  shared_preferences: ^2.0.16
+  get:
+  shared_preferences:
   # Eternal Packages
 
 dev_dependencies:
